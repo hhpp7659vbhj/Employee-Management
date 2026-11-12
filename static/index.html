@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zoogle Enterprise EMS | Workforce & Operations</title>
+
+  <!-- Google Fonts: Instrument Serif & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Existing stylesheet -->
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body class="text-white antialiased selection:bg-[#851C2C] selection:text-white">
+
+  <!-- SHARED ANIMATED VIDEO BACKGROUND -->
+  <!-- Same video URL and playback settings as the original -->
+  <video
+    class="site-cinematic-video"
+    autoplay
+    loop
+    muted
+    playsinline
+    preload="auto"
+    aria-hidden="true"
+    tabindex="-1"
+  >
+    <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_131748_f2ca2a28-fed7-44c8-b9a9-bd9acdd5ec31.mp4" type="video/mp4">
+  </video>
+
+  <!-- ================= 1. CINEMATIC VIDEO HERO SECTION ================= -->
+  <section id="cinematic-hero-intro" class="relative flex flex-col justify-between">
+
+    <!-- Navigation Bar -->
+    <header class="relative z-10 flex flex-row items-center justify-between px-8 py-6 max-w-7xl mx-auto w-full">
+      <div class="flex items-center gap-2">
+        <a href="#" class="text-3xl tracking-tight text-white hover:opacity-90 transition-opacity" style="font-family: 'Instrument Serif', serif;">
+          <sup class="text-xs">®</sup>
+        </a>
+
+        <span class="text-[10px] uppercase tracking-widest text-[#A1A1AA] border border-white/10 px-2 py-0.5 rounded-full ml-3 hidden sm:inline-block">
+          by Zoogle India
+        </span>
+      </div>
+
+      <!--
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="#" class="text-sm text-white font-medium transition-colors">Home</a>
+        <a href="#studio" id="nav-studio-btn" class="text-sm text-[#A1A1AA] hover:text-white transition-colors">Studio</a>
+        <a href="#about" id="nav-about-btn" class="text-sm text-[#A1A1AA] hover:text-white transition-colors">About</a>
+        <a href="#journal" class="text-sm text-[#A1A1AA] hover:text-white transition-colors">Journal</a>
+        <a href="#reach-us" class="text-sm text-[#A1A1AA] hover:text-white transition-colors">Reach Us</a>
+      </nav>
+      -->
+
+      <div class="flex items-center gap-3">
+        <button
+          id="hero-nav-cta-btn"
+          class="liquid-glass rounded-full px-6 py-2.5 text-sm text-white hover:scale-[1.03] transition-transform cursor-pointer font-medium"
+        >
+          Begin Journey
+        </button>
+      </div>
+    </header>
+
+    <!-- Hero Center Content -->
+    <main class="relative z-10 flex flex-col items-center justify-center text-center px-6 pt-20 pb-32 max-w-6xl mx-auto my-auto">
+      <h1 class="text-5xl sm:text-7xl md:text-8xl leading-[0.95] tracking-[-2.46px] max-w-7xl font-normal text-white animate-fade-rise" style="font-family: 'Instrument Serif', serif;">
+        Where <em class="not-italic text-[#A1A1AA]">dreams</em> rise
+        <em class="not-italic text-[#A1A1AA]">through the silence.</em>
+      </h1>
+
+      <p class="text-[#A1A1AA] text-base sm:text-lg max-w-2xl mt-8 leading-relaxed font-normal animate-fade-rise-delay">
+        We're designing tools for deep thinkers, bold creators, and quiet rebels. Amid the chaos, we build digital spaces for sharp focus and inspired work.
+      </p>
+
+      <div class="mt-8 flex items-center gap-2 text-xs text-[#A1A1AA]/80 animate-fade-rise-delay-2">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span>Zoogle Enterprise EMS • Indian Workforce Platform</span>
+      </div>
+    </main>
+
+    <!-- Hero Footer Status -->
+    <footer class="relative z-10 px-8 py-5 text-center text-xs text-[#A1A1AA]/60 flex items-center justify-between max-w-7xl mx-auto w-full">
+      <span>Bangalore • Mumbai • Hyderabad • Gurugram</span>
+
+      <button id="skip-hero-btn" class="hover:text-white transition-colors cursor-pointer underline">
+        Access Portal Directly →
+      </button>
+    </footer>
+  </section>
+
+  <!-- ================= 2. LOGIN PAGE ================= -->
+  <!-- Same auth-view ID; transparent shell allows the video to show through -->
+  <div
+    id="auth-view"
+    class="login-page-shell min-h-screen flex items-center justify-center p-6 relative"
+    style="display: none;"
+  >
+
+    <!-- Midnight-blue glass login card -->
+    <div class="login-glass-card w-full max-w-md backdrop-blur-2xl rounded-3xl shadow-2xl overflow-hidden relative z-10">
+
+      <!-- Replay Video Intro Button -->
+      <button
+        id="replay-hero-btn"
+        class="absolute top-4 right-4 text-xs font-semibold px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-[#D9AD62] border border-[#D9AD62]/30 transition flex items-center gap-1.5"
+      >
+        <span>🎬 Video Intro</span>
+      </button>
+
+      <!-- Brand Header -->
+      <div class="px-8 pt-8 pb-3 text-center">
+
+        <div class="w-14 h-14 mx-auto rounded-2xl bg-gradient-to-tr from-[#8D2938] to-[#D9AD62] p-0.5 shadow-lg shadow-[#D9AD62]/20 mb-3 flex items-center justify-center">
+          <div class="w-full h-full bg-[#071727] rounded-2xl flex items-center justify-center">
+            <svg
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#D4AF37"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M4 4h16l-10 16h10" />
+            </svg>
+          </div>
+        </div>
+
+        <h2
+          class="text-4xl font-normal tracking-wide text-[#F5F0E6]"
+          style="font-family: 'Instrument Serif', serif;"
+        >
+          ZOOGLE
+        </h2>
+
+        <p class="text-[11px] uppercase tracking-[0.32em] text-[#D9AD62] mt-1">
+          Enterprise EMS
+        </p>
+
+        <p id="login-subtitle" class="text-xs text-[#AAB9C8] mt-2 font-medium">
+          Zoogle Enterprise India • Master Governance
+        </p>
+
+        <div class="mt-3 flex justify-center">
+          <span
+            id="login-role-badge"
+            class="text-xs px-3 py-1 rounded-full font-bold tracking-wider bg-[#10283A] text-[#D9AD62] border border-[#D9AD62]/40"
+          >
+            ADMINISTRATION ACCESS
+          </span>
+        </div>
+      </div>
+
+      <!-- Admin / Employee Switcher -->
+      <div class="portal-tab-group">
+        <button type="button" class="portal-tab active-tab" data-mode="admin">
+          <span>👑 Administration</span>
+        </button>
+
+        <button type="button" class="portal-tab" data-mode="employee">
+          <span>💼 Employee Portal</span>
+        </button>
+      </div>
+
+      <!-- Existing Login Form -->
+      <form id="login-form" class="login-form p-8 pt-6 space-y-4">
+        <input type="hidden" id="login-role" value="ADMIN">
+
+        <div>
+          <label class="block text-xs font-bold text-[#D6E0E8] mb-1.5 tracking-wider uppercase">
+            Username or Work Email
+          </label>
+
+          <input
+            type="text"
+            id="login-username"
+            required
+            value="admin"
+            placeholder="e.g. admin or dheeraj.raj"
+            class="zoogle-input"
+          >
+        </div>
+
+        <div>
+          <div class="flex items-center justify-between mb-1.5">
+            <label class="block text-xs font-bold text-[#D6E0E8] tracking-wider uppercase">
+              Password
+            </label>
+
+            <span class="text-xs text-[#D9AD62] hover:underline cursor-pointer">
+              Default: zoogle123
+            </span>
+          </div>
+
+          <input
+            type="password"
+            id="login-password"
+            required
+            value="admin123"
+            placeholder="••••••••••••"
+            class="zoogle-input font-mono"
+          >
+        </div>
+
+        <div class="flex items-center justify-between text-xs text-[#AAB9C8] pt-1">
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input
+              type="checkbox"
+              checked
+              class="rounded border-gray-700 bg-[#10283A] text-[#851C2C] focus:ring-[#D4AF37]"
+            >
+            <span>Keep session active</span>
+          </label>
+
+          <span class="text-xs font-mono text-[#D9AD62]/80">
+            TLS 1.3 256-Bit
+          </span>
+        </div>
+
+        <div class="pt-2">
+          <button
+            type="submit"
+            id="login-submit-btn"
+            class="w-full btn-primary-maroon text-base py-3.5"
+          >
+            <span>Sign In as Administrator</span>
+            <span>→</span>
+          </button>
+        </div>
+
+        <!-- Existing Demo Credentials -->
+        <div id="quick-demo-container" class="mt-4 pt-4 border-t border-[#851C2C]/30">
+          <div class="flex items-center justify-between text-xs text-[#AAB9C8]">
+            <span>Demo Admin Credentials:</span>
+
+            <button
+              type="button"
+              class="text-[#D9AD62] hover:underline font-semibold"
+              id="fill-admin-demo"
+            >
+              Fill: admin / admin123
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <!-- Login Card Footer -->
+      <div class="login-card-footer px-8 py-3.5 text-center border-t text-[11px]">
+        Zoogle Technologies India Pvt. Ltd. • Tech Bay, Bangalore
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= 3. ADMIN DASHBOARD VIEW ================= -->
+  <div id="admin-dashboard-view" class="dashboard-wrapper" style="display: none;">
+
+    <!-- Sidebar -->
+    <aside class="dashboard-sidebar">
+      <div class="h-20 flex items-center gap-3 px-6 border-b border-[#851C2C]/30 bg-[#2D0A10]">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#6B1724] to-[#D4AF37] p-0.5 flex items-center justify-center">
+          <div class="w-full h-full bg-[#1F080C] rounded-xl flex items-center justify-center text-white font-black text-lg">
+            Z
+          </div>
+        </div>
+
+        <div>
+          <h1 class="text-lg font-black tracking-tight text-white leading-none">ZOOGLE</h1>
+          <span class="text-[10px] font-bold tracking-widest text-[#E6C280] uppercase">
+            Admin Master Console
+          </span>
+        </div>
+      </div>
+
+      <div class="py-6 flex-1 overflow-y-auto space-y-1">
+        <a href="#overview" class="nav-link active-nav" data-target="overview">
+          <span class="text-base">📊</span>
+          <span>Overview</span>
+        </a>
+
+        <a href="#employees" class="nav-link" data-target="employees">
+          <span class="text-base">👥</span>
+          <span>Employee Directory</span>
+        </a>
+
+        <a href="#departments" class="nav-link" data-target="departments">
+          <span class="text-base">🏢</span>
+          <span>Departments</span>
+        </a>
+
+        <a href="#attendance" class="nav-link" data-target="attendance">
+          <span class="text-base">⏱️</span>
+          <span>Attendance & QR Logs</span>
+        </a>
+
+        <a href="#leaves" class="nav-link" data-target="leaves">
+          <span class="text-base">📅</span>
+          <span>Leave Approvals</span>
+        </a>
+
+        <a href="#payroll" class="nav-link" data-target="payroll">
+          <span class="text-base">💼</span>
+          <span>Payroll (₹ INR)</span>
+        </a>
+
+        <a href="#performance" class="nav-link" data-target="performance">
+          <span class="text-base">⭐</span>
+          <span>Performance Reviews</span>
+        </a>
+
+        <a href="#notices" class="nav-link" data-target="notices">
+          <span class="text-base">📢</span>
+          <span>Company Notices</span>
+        </a>
+
+        <a href="#settings" class="nav-link" data-target="settings">
+          <span class="text-base">⚙️</span>
+          <span>Database & QR Setup</span>
+        </a>
+      </div>
+
+      <div class="p-4 border-t border-[#851C2C]/30 bg-[#24080D]">
+        <div class="flex items-center gap-3">
+          <img
+            id="admin-header-avatar"
+            src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150"
+            class="w-10 h-10 rounded-xl object-cover border border-[#D4AF37]/50"
+          >
+
+          <div class="flex-1 min-w-0">
+            <h4 id="admin-header-name" class="text-sm font-bold text-white truncate">
+              Rajeshwar Verma
+            </h4>
+            <p class="text-[11px] text-[#E6C280] font-semibold">
+              Chief Admin Executive
+            </p>
+          </div>
+
+          <button id="admin-logout-btn" class="p-2 text-gray-400 hover:text-white rounded-lg hover:bg-white/10" title="Logout">
+            🚪
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Admin Main Content -->
+    <main class="dashboard-main">
+      <header class="dashboard-header">
+        <div class="flex items-center gap-4">
+          <h2 class="text-xl font-black text-[#52121D] tracking-tight">
+            Zoogle Management Suite
+          </h2>
+
+          <span class="text-xs px-2.5 py-1 rounded-full bg-[#FAF2F3] text-[#851C2C] font-semibold border border-[#F7EAEB] hidden sm:inline-block">
+            HQ Server: Bangalore
+          </span>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <button
+            id="admin-show-qr-btn"
+            class="btn-primary-maroon text-xs py-2 px-3.5 flex items-center gap-1.5"
+            title="Display Office Gate QR Code for Scanning"
+          >
+            <span>📷 Office QR Code</span>
+          </button>
+
+          <button
+            onclick="App.replayIntro()"
+            class="btn-gold-outline text-xs hidden sm:flex items-center gap-1.5"
+            title="Replay Video Opening"
+          >
+            <span>🎬 Video Hero</span>
+          </button>
+
+          <div class="text-right hidden md:block">
+            <p class="text-xs font-bold text-[#52121D]">Whitefield Tech Bay 4</p>
+            <p class="text-[11px] text-gray-500 font-mono">Port 8080 • Java 26 Backend</p>
+          </div>
+        </div>
+      </header>
+
+      <div id="admin-section-content" class="p-6 md:p-8 flex-1">
+        <!-- Rendered by JS -->
+      </div>
+    </main>
+  </div>
+
+  <!-- ================= 4. EMPLOYEE DASHBOARD VIEW ================= -->
+  <div id="employee-dashboard-view" class="dashboard-wrapper" style="display: none;">
+
+    <!-- Sidebar -->
+    <aside class="dashboard-sidebar sidebar-employee">
+      <div class="h-20 flex items-center gap-3 px-6 border-b border-[#663324]/30 bg-[#23110C]">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#4F271C] to-[#D4AF37] p-0.5 flex items-center justify-center">
+          <div class="w-full h-full bg-[#1C0F0B] rounded-xl flex items-center justify-center text-white font-black text-lg">
+            Z
+          </div>
+        </div>
+
+        <div>
+          <h1 class="text-lg font-black tracking-tight text-white leading-none">ZOOGLE</h1>
+          <span class="text-[10px] font-bold tracking-widest text-[#E6C280] uppercase">
+            Employee Desk
+          </span>
+        </div>
+      </div>
+
+      <div class="py-6 flex-1 overflow-y-auto space-y-1">
+        <a href="#desk" class="nav-link active-nav" data-target="desk">
+          <span class="text-base">💼</span>
+          <span>My Desk</span>
+        </a>
+
+        <a href="#my-attendance" class="nav-link" data-target="my-attendance">
+          <span class="text-base">⏱️</span>
+          <span>Attendance & Logs</span>
+        </a>
+
+        <a href="#my-leaves" class="nav-link" data-target="my-leaves">
+          <span class="text-base">🏖️</span>
+          <span>Leave Portal</span>
+        </a>
+
+        <a href="#my-payslips" class="nav-link" data-target="my-payslips">
+          <span class="text-base">📄</span>
+          <span>My Payslips</span>
+        </a>
+
+        <a href="#my-tasks" class="nav-link" data-target="my-tasks">
+          <span class="text-base">📋</span>
+          <span>Deliverables & Tasks</span>
+        </a>
+
+        <a href="#notices" class="nav-link" data-target="notices">
+          <span class="text-base">📢</span>
+          <span>Company Notices</span>
+        </a>
+
+        <a href="#my-profile" class="nav-link" data-target="my-profile">
+          <span class="text-base">👤</span>
+          <span>My Profile & Skills</span>
+        </a>
+      </div>
+
+      <div class="p-4 border-t border-[#663324]/30 bg-[#1D0D09]">
+        <div class="flex items-center gap-3">
+          <img
+            id="emp-header-avatar"
+            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150"
+            class="w-10 h-10 rounded-xl object-cover border border-[#D4AF37]/50"
+          >
+
+          <div class="flex-1 min-w-0">
+            <h4 id="emp-header-name" class="text-sm font-bold text-white truncate">
+              Dheeraj Raj
+            </h4>
+            <p id="emp-header-dept" class="text-[11px] text-[#E6C280] truncate font-medium">
+              Engineering
+            </p>
+          </div>
+
+          <button id="emp-logout-btn" class="p-2 text-gray-400 hover:text-white rounded-lg hover:bg-white/10" title="Logout">
+            🚪
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Employee Main Content -->
+    <main class="dashboard-main">
+      <header class="dashboard-header">
+        <div class="flex items-center gap-4">
+          <h2 class="text-xl font-black text-[#3D1E16] tracking-tight">
+            Zoogle Employee Workspace
+          </h2>
+
+          <span class="text-xs px-2.5 py-1 rounded-full bg-[#FAF6F4] text-[#663324] font-semibold border border-[#E6D2CA] hidden sm:inline-block">
+            Self-Service Active
+          </span>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <button id="header-scan-qr-btn" class="btn-primary-brown text-xs py-2 px-3.5 flex items-center gap-1.5 shadow-md">
+            <span>📷 Scan Office QR</span>
+          </button>
+
+          <button
+            onclick="App.replayIntro()"
+            class="btn-gold-outline text-xs hidden sm:flex items-center gap-1.5"
+            title="Replay Video Opening"
+          >
+            <span>🎬 Video Hero</span>
+          </button>
+
+          <div class="text-right hidden md:block">
+            <p class="text-xs font-bold text-[#3D1E16]">Whitefield Technology Park</p>
+            <p class="text-[11px] text-gray-500 font-mono">Working Hours: 08:00 - 20:00 IST</p>
+          </div>
+        </div>
+      </header>
+
+      <div id="employee-section-content" class="p-6 md:p-8 flex-1">
+        <!-- Rendered by JS -->
+      </div>
+    </main>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 max-w-sm pointer-events-none"></div>
+
+  <!-- Existing Application Logic -->
+  <script src="/js/app.js"></script>
+</body>
+</html>
